@@ -1,4 +1,4 @@
-# Sporran - a PouchDB alike database client for Dart
+# Cloudant Serverless Client - a PouchDB alike database client for Dart
 
 ## Introduction
 
