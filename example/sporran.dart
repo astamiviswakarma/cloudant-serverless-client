@@ -5,7 +5,7 @@
  * Copyright :  S.Hamblett
  */
 
-import 'package:sporran/sporran.dart';
+import 'package:cloudant_serverless_client/sporran.dart';
 import 'package:json_object_lite/json_object_lite.dart';
 
 // ignore: avoid_relative_lib_imports
