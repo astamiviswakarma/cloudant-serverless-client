@@ -19,13 +19,16 @@ class SporranInitialiser {
   String port;
 
   /// Scheme
-  String scheme = 'http://';
+  String scheme = 'https://';
 
   /// Username
   String username;
 
   /// Password
   String password;
+
+  /// oauth refresh token
+  String accessToken;
 
   /// Manual notification control.
   ///

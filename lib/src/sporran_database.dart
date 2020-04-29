@@ -31,9 +31,10 @@ class _SporranDatabase {
   _SporranDatabase(this._dbName, this._host,
       [this._manualNotificationControl = false,
       this._port = '5984',
-      this._scheme = 'http://',
+      this._scheme = 'https://',
       this._user,
       this._password,
+      this.accessToken,
       this._preserveLocalDatabase = false]) {
     _initialise();
   }
@@ -52,10 +53,9 @@ class _SporranDatabase {
     }
     // Instantiate a Wilt object
     _wilt = WiltBrowserClient(_host, _port, _scheme);
-    // Login
-    if (_user != null) {
-      _wilt.login(_user, _password);
-    }
+
+    _login(_wilt);
+
     // Open CouchDb
     connectToCouch();
   }
@@ -77,6 +77,9 @@ class _SporranDatabase {
 
   /// Authentication, user password
   String _password;
+
+  /// oauth access token
+  String accessToken;
 
   /// Manual notification control
   final bool _manualNotificationControl;
@@ -204,6 +207,19 @@ class _SporranDatabase {
     _onReady.add(e);
   }
 
+  /// login to wilt
+  void _login(WiltBrowserClient _wilt) {
+    // Login with token first
+    if(accessToken != null) {
+      _wilt.loginWithToken(accessToken);
+    }
+
+    // Login
+    if (_user != null) {
+      _wilt.login(_user, _password);
+    }
+  }
+
   /// Create and/or connect to CouchDb
   void connectToCouch([bool transitionToOnline = false]) {
     /// If the CouchDb database does not exist create it.
@@ -312,9 +328,7 @@ class _SporranDatabase {
     final Wilt wilting = WiltBrowserClient(_host, _port, _scheme);
 
     /* Login if we are using authentication */
-    if (_user != null) {
-      wilting.login(_user, _password);
-    }
+    _login(wilting);
 
     /* Get and update all the attachments */
     for (final dynamic attachment in attachments) {
@@ -440,9 +454,7 @@ class _SporranDatabase {
     final Wilt wilting = WiltBrowserClient(_host, _port, _scheme);
 
     /* Login if we are using authentication */
-    if (_user != null) {
-      wilting.login(_user, _password);
-    }
+    _login(wilting);
 
     wilting.db = _dbName;
     wilting.deleteDocument(key, revision);
@@ -457,9 +469,7 @@ class _SporranDatabase {
     final Wilt wilting = WiltBrowserClient(_host, _port, _scheme);
 
     /* Login if we are using authentication */
-    if (_user != null) {
-      wilting.login(_user, _password);
-    }
+    _login(wilting);
 
     wilting.db = _dbName;
     wilting.deleteAttachment(key, name, revision);
@@ -472,9 +482,7 @@ class _SporranDatabase {
     final Wilt wilting = WiltBrowserClient(_host, _port, _scheme);
 
     /* Login if we are using authentication */
-    if (_user != null) {
-      wilting.login(_user, _password);
-    }
+    _login(wilting);
 
     FutureOr<void> getCompleter(dynamic res) async {
       /**
@@ -530,9 +538,7 @@ class _SporranDatabase {
     final Wilt wilting = WiltBrowserClient(_host, _port, _scheme);
 
     /* Login if we are using authentication */
-    if (_user != null) {
-      wilting.login(_user, _password);
-    }
+    _login(wilting);
 
     void localCompleter(dynamic res) {
       if (!res.error) {
@@ -577,9 +583,7 @@ class _SporranDatabase {
     final Wilt wilting = WiltBrowserClient(_host, _port, _scheme);
 
     /* Login if we are using authentication */
-    if (_user != null) {
-      wilting.login(_user, _password);
-    }
+    _login(wilting);
 
     /* Prepare the documents */
     final List<String> documentList = <String>[];

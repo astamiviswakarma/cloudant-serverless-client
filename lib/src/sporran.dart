@@ -40,6 +40,7 @@ class Sporran {
         initialiser.scheme,
         initialiser.username,
         initialiser.password,
+        initialiser.accessToken,
         initialiser.preserveLocal);
 
     // Online/offline listeners
