@@ -2,7 +2,7 @@
 
 ## Introduction
 
-Sporran is a [PouchDB](http://pouchdb.com/) alike implementation for Dart.
+Cloudant Serverless Client is a [PouchDB](http://pouchdb.com/) alike implementation for Dart.
 
 It uses Lawndart(browser local storage client) and Wilt(browser CouchDB client) 
 to allow browser based CouchDB users to transition between online and offline 
