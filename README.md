@@ -4,7 +4,7 @@
 
 Cloudant Serverless Client is a [PouchDB](http://pouchdb.com/) alike implementation for Dart.
 
-It uses Lawndart(browser local storage client) and Wilt(browser CouchDB client) 
+It uses Lawndart(browser local storage client) and [Wilt](https://github.com/astamiviswakarma/wilt.git) (browser CouchDB client) 
 to allow browser based CouchDB users to transition between online and offline 
 modes and carry on working normally.
 
