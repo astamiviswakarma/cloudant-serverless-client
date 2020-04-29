@@ -9,7 +9,7 @@
 
 import 'dart:async';
 import 'package:wilt/wilt.dart';
-import 'package:sporran/sporran.dart';
+import 'package:cloudant_serverless_client/sporran.dart';
 import 'package:json_object_lite/json_object_lite.dart';
 import 'package:test/test.dart';
 import 'sporran_test_config.dart';
