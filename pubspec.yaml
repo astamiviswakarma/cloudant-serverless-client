@@ -1,13 +1,14 @@
-name: sporran
+name: cloudant_serverless_client
 version: 4.0.4
 description: A PouchDB alike for Dart. Uses lawndart for local storage and Wilt for CouchDB access.
-homepage: https://github.com/shamblett/sporran
+homepage: https://github.com/astamiviswakarma/cloudant-serverless-client
 
 environment:
   sdk: '>=2.0.0-dev <3.0.0'
 
 dependencies:
-  wilt: '>=4.0.0 <=5.0.0'
+  wilt:
+    git: https://github.com/astamiviswakarma/wilt.git
   json_object_lite: '^2.1.0'
 
 dev_dependencies:
