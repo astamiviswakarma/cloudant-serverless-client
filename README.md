@@ -21,5 +21,5 @@ this folder and is available [here](http://oscf.org.uk/dart/api/sporran)
 
 ## Contact
 
-Queries you can direct to me at <steve.hamblett@linux.com> or raise an issue here.
+Queries you can direct to me or raise an issue here.
 
